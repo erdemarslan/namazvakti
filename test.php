@@ -12,7 +12,7 @@ $nv = new Namaz( $cache_klasoru );
 $ulkeler	= $nv->ulkeler();
 $sehirler	= $nv->sehirler( 'TURKIYE', 'array' );
 $ilceler	= $nv->ilceler( 'CANAKKALE', 'array' );
-$vakit		= $nv->vakit('BIGA','TURKIYE', 'array');
+$vakit	= $nv->vakit('BIGA','TURKIYE', 'array');
 
 echo '<h2>Ülkeler</h2>';
 print_r( $ulkeler );
