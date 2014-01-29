@@ -1,0 +1,26 @@
+{
+    "name"             : "erdemarslan/namazvakti",
+    "type"             : "library",
+    "description"      : "Extracts muslim prayer times from diyanet.gov.tr and caches them to files.",
+    "keywords"         : [
+        "prayer times",
+        "diyanet",
+        "Turkish"
+    ],
+    "license"          : "GPL-2.0",
+    "authors"          : [
+        {
+            "name"    : "Erdem Arslan",
+            "email"   : "erdemsaid@gmail.com",
+            "homepage": "http://www.erdemarslan.com"
+        }
+    ],
+    "require"          : {
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload"         : {
+        "classmap": ["namazvakti.class.php"]
+    },
+    "minimum-stability": "dev"
+}
