@@ -1,0 +1,98 @@
+body {
+    background-color: #36393D;
+    color: #36393D;
+}
+
+.maincontent {
+    width: 800px;
+    margin:0 auto;
+   /* height: 200px;*/
+    background-color: #F9F7ED;
+    padding: 10px;
+    margin-top: 100px;
+}
+
+.header {
+    text-align: center;
+    
+    padding: 10px;
+}
+
+.content {
+    padding: 10px;
+}
+
+.content form {
+    padding: 10px;
+    background-color: #EEEEEE;
+}
+
+.content form label {
+    font-weight: bold;
+    display: block;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.content form select {
+    display: block;
+    height: 30px;
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.result {
+    padding: 10px;
+    
+}
+
+pre {
+    font-family: Consolas, Monaco, Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #D0D0D0;
+    color: #002166;
+    display: block;
+    padding: 12px 10px 12px 10px; 
+}
+
+.nvButton {
+    display: inline-block;
+    background: #66ab04;
+    -webkit-box-shadow: 0px 1px 0px 0px #82ba31 inset, 0px 0px 0px 4px #e6e6e6;
+    -moz-box-shadow: 0px 1px 0px 0px #82ba31 inset, 0px 0px 0px 4px #e6e6e6;
+    box-shadow: 0px 1px 0px 0px #82ba31 inset, 0px 0px 0px 4px #e6e6e6;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 0px 1px 1px #497a03;
+    padding: 6px 30px;
+    border-color: #5b9904;
+    border-width: 1px;
+    border-style: solid;
+    font-family: Arial, Helvetica, Sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    margin-top:5px;
+}
+.nvButton:hover {
+    background: #9bce00;
+    -webkit-box-shadow: 0px 1px 0px 0px #add72e inset, 0px 0px 0px 4px #d5efab;
+    -moz-box-shadow: 0px 1px 0px 0px #add72e inset, 0px 0px 0px 4px #d5efab;
+    box-shadow: 0px 1px 0px 0px #add72e inset, 0px 0px 0px 4px #d5efab;
+    text-shadow: 0px 1px 1px #698c00;
+    border-color: #93c300;
+}
+
+#ilceler, #ilceler_label {
+    display: none;
+}
+
+
+
