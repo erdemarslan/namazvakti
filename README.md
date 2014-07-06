@@ -5,7 +5,7 @@ Bu PHP Sınıfı Diyanet İşleri Başkanlığından Namaz / ezan vakitlerini ç
 
 v.5.2 Sürümüne güncellenmiştir.
 
-Güncelleme ile birlikte;
-1. Diyanetin sunucularından veri çekme sıkıntısı giderilmiştir.
-2. Hicri takvimin 1 gün geriden gelme problemi giderilmiştir.
-3. Hemen hemen tüm dosyalar güncellenmiştir. Dolayısıyla daha önceden bu sistemin dosyalarını kullanıyorsanız, lütfen dosyaları yenileyiniz. Kod çıktılarına dikkat ediniz. Geriye dönük uyumluluk yoktur.
+<strong>Güncelleme ile birlikte;</strong>
+* Diyanetin sunucularından veri çekme sıkıntısı giderilmiştir.
+* Hicri takvimin 1 gün geriden gelme problemi giderilmiştir.
+* Hemen hemen tüm dosyalar güncellenmiştir. Dolayısıyla daha önceden bu sistemin dosyalarını kullanıyorsanız, lütfen dosyaları yenileyiniz. Kod çıktılarına dikkat ediniz. Bu sürümde geriye dönük uyumluluk yoktur.
