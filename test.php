@@ -1,6 +1,6 @@
 <?php
 
-require_once 'namazvakitleri/class.namazvakti.php';
+require_once 'namazvakti_class/class.namazvakti.php';
 
 $n = new Namaz;
 

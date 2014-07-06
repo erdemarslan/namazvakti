@@ -1,6 +1,6 @@
 <?php
 
-require_once '../namazvakti.class.php';
+require_once '../namazvakti_class/class.namazvakti.php';
 $nv = new Namaz( dirname(__FILE__) . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR );
 
 
@@ -25,7 +25,7 @@ if (count($_POST) > 0)
         break;
     
         case 'vakit' :
-            $veri = $nv->vakit( $_POST['sehir'], $_POST['ulke'], 'array');
+            $veri = $nv->vakit( $_POST['ulke'], $_POST['sehir'], $_POST['ilce']);
             print_r( $veri );
         break;
     }

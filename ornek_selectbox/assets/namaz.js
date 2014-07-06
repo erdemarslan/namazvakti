@@ -12,15 +12,17 @@ function ulkeleri_al()
     $.post('sorgu.php', { islem: 'ulke' }, function(data){
         
         data = $.parseJSON(data);
+		
+		console.log(dump(data));
         
-        $.each( data, function(i,item){
+        $.each( data.veri, function(i,item){
             
             if (item.value != 2) {
                 var newOption = $('<option />');
                 $('#ulkeler').append(newOption);
                     
-                newOption.val(item.value);
-                newOption.html(item.text);
+                newOption.val(i);
+                newOption.html(item);
             }
         });
     });
@@ -50,10 +52,10 @@ function sehirleri_al()
                 var newOption = $('<option />');
                 $('#sehirler').append(newOption);
                 
-                newOption.val(item.value);
-                newOption.html(item.text);
+                newOption.val(i);
+                newOption.html(item);
                 
-                if ( ulke_adi == 2 ) {
+                if ( ulke_adi == 2 || ulke_adi == 33 || ulke_adi == 52 ) {
                     $('#ilceler_label').css('display','block');
                     $('#ilceler').css('display','block');
                 } else {
@@ -82,7 +84,7 @@ function ilceleri_al() {
     var sehir_adi = $('#sehirler').val();
     
     // Ülke TÜRKİYE ise çalış değilse çık
-    if ( ulke_adi == 'TURKIYE' ) {
+    if ( ulke_adi == 2 || ulke_adi == 33  || ulke_adi == 52 ) {
         $.post('sorgu.php', { islem:'ilce', sehir: sehir_adi }, function(data){
             var response = $.parseJSON(data);
             if (response.durum == 'basarili') {
@@ -90,8 +92,8 @@ function ilceleri_al() {
                     var newOption = $('<option />');
                     $('#ilceler').append(newOption);
                     
-                    newOption.val(item.value);
-                    newOption.html(item.text);
+                    newOption.val(i);
+                    newOption.html(item);
                 });
             } else {
                 alert('İlçeler Alınamadı!');
@@ -108,11 +110,13 @@ function vakti_al() {
     var ulke_adi    = $('#ulkeler').val(),
         sehir_adi   = $('#sehirler').val(),
         ilce_adi    = $('#ilceler').val();
-    
-    // ilçe bilgisi 0 ise ülke TÜRKİYE değil demektir o durumda şehir olarak sehir_adi ni kullanacağız
-    var veri_cekilecek_sehir_adi = ilce_adi == 0 ? sehir_adi : ilce_adi;
-    
-    $.post('sorgu.php', { islem:'vakit', sehir: veri_cekilecek_sehir_adi, ulke: ulke_adi }, function(data){        
+		
+		if (ilce_adi == "" || ilce_adi == 0)
+		{
+			ilce_adi = sehir_adi;
+		}
+		    
+    $.post('sorgu.php', { islem:'vakit', ilce: ilce_adi, sehir: sehir_adi, ulke: ulke_adi }, function(data){        
         $('.result').html('<pre>' + data + '</pre>');
     });
 }
