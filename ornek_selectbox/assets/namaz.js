@@ -15,7 +15,7 @@ function ulkeleri_al()
         
         $.each( data, function(i,item){
             
-            if (item.value != 'TURKIYE') {
+            if (item.value != 2) {
                 var newOption = $('<option />');
                 $('#ulkeler').append(newOption);
                     
@@ -53,7 +53,7 @@ function sehirleri_al()
                 newOption.val(item.value);
                 newOption.html(item.text);
                 
-                if ( ulke_adi == 'TURKIYE' ) {
+                if ( ulke_adi == 2 ) {
                     $('#ilceler_label').css('display','block');
                     $('#ilceler').css('display','block');
                 } else {
