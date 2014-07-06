@@ -1,25 +1,24 @@
 <?php
 
+require_once 'namazvakitleri/class.namazvakti.php';
+
+$n = new Namaz;
+
 echo '<pre>';
 
+$ulkeler = $n->ulkeler();
 
-require 'namazvakti.class.php';
+$sehirler = $n->sehirler(2);
 
-$cache_klasoru = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR;
+$ilceler = $n->ilceler(521);
 
-$nv = new Namaz( $cache_klasoru );
+$vakit = $n->vakit(2, 521, 9351);
 
-$ulkeler	= $nv->ulkeler();
-$sehirler	= $nv->sehirler( 'TURKIYE', 'array' );
-$ilceler	= $nv->ilceler( 'CANAKKALE', 'array' );
-$vakit	= $nv->vakit('BIGA','TURKIYE', 'array');
 
-echo '<h2>Ülkeler</h2>';
-print_r( $ulkeler );
-echo '<h2>Şehirler</h2>';
-print_r( $sehirler );
-echo '<h2>İlçeler</h2>';
-print_r( $ilceler );
-echo '<h2>Vakit</h2>';
-print_r( $vakit );
+print_r($vakit);
 
+print_r($ilceler);
+
+print_r($sehirler);
+
+print_r($ulkeler);
