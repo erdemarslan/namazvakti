@@ -6,7 +6,7 @@
  * @author		Erdem ARSLAN <http://www.erdemarslan.com> <erdemsaid@gmail.com>
  * @copyright	Copyright (c) 2014 erdemarslan.com
  * @link		http://www.erdemarslan.com/programlama/php-programlama/06-01-2014/563-namaz-vakitleri-php-sinifi.html
- * @version     5.1
+ * @version     5.3
  * @license		GPL v2.0
  * @Ext-Info	Hicri Tarih Sınıfı - Abdulrhman Alkhodiry <zeroows@gmail.com>
  */
@@ -28,7 +28,7 @@ Class Namaz
 	protected $sehirler;
 	protected $ilceler;
 	
-	protected $server;
+	protected $server = 'http://www.diyanet.gov.tr';
 	
 	
 	
@@ -81,6 +81,18 @@ Class Namaz
 		$this->sehirler	= file_get_contents( $dosyayolu . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'sehirler.ndb' );
 		$this->ilceler	= file_get_contents( $dosyayolu . DIRECTORY_SEPARATOR . 'db' . DIRECTORY_SEPARATOR . 'ilceler.ndb' );
 		
+	}
+	
+	/**
+     * Hac kuraları zamanında sunucu adresinin değişmesinden dolayı ortaya çıkan problemin giderilebilmesi için sunucu adresini belirler.
+     *
+     * @param bool Hac mevsimi olup olmadığını doğru ve yanlış olarak ifade eder.
+     * @return method chaining için sınıfın kendisini geri döndürür.
+     */
+	public function hac_mevsimi($evet=false)
+	{
+		$this->server = $evet == false ? 'http://www.diyanet.gov.tr' : 'http://web2.diyanet.gov.tr';
+		return $this;
 	}
 	
 		
@@ -210,6 +222,16 @@ Class Namaz
 		return $yazdir;
 	}
 	
+	/**
+     * Cache klasörünün içini temizler
+     *
+     * @return void
+     */
+	public function cache_temizle()
+	{
+		array_map('unlink', glob( $this->cache . '*.ndb' ));
+	}
+	
 	
 	#####################################################################################################################
 	#####												CACHE İŞLEMLERİ												#####
@@ -295,9 +317,7 @@ Class Namaz
 		} else {
 			$ilce = is_null( $ilce ) === TRUE ? $sehir : $ilce;
 		}
-		
-		$this->server_check();
-		
+				
 		$url =  $this->server . '/PrayerTime/PrayerTimesSet';
 		
 		$data = array(
@@ -364,6 +384,7 @@ Class Namaz
      * @return $this
      */
 	 
+	/*
 	private function server_check()
 	{
 	 	$ch = curl_init();
@@ -373,12 +394,12 @@ Class Namaz
 
 		$bilgi = curl_getinfo( $ch );
 		curl_close( $ch );
-		
+				
 		$this->server = $bilgi['http_code'] == 200 ? 'http://www.diyanet.gov.tr' : 'http://web2.diyanet.gov.tr';
-		
+				
 		return $this;
 	}
-		
+	*/	
 	
 	/**
      * Diyanetten verileri almak için cURL metodu - Özeldir
