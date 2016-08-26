@@ -5,11 +5,6 @@ Bu PHP Sınıfı Diyanet İşleri Başkanlığından Namaz / ezan vakitlerini ç
 
 v.5.3 Sürümüne güncellenmiştir.
 
-<strong>Güncelleme ile birlikte;</strong>
-* Diyanetin sunucularından veri çekme sıkıntısı giderilmiştir.
-* Hicri takvimin 1 gün geriden gelme problemi giderilmiştir.
-* Hemen hemen tüm dosyalar güncellenmiştir. Dolayısıyla daha önceden bu sistemin dosyalarını kullanıyorsanız, lütfen dosyaları yenileyiniz. Kod çıktılarına dikkat ediniz. Bu sürümde geriye dönük uyumluluk yoktur.
-
 <strong>Kullanımı</strong>
 
 class.namazvakti.php dosyasını ve db ile cache klasörünü ana dizin klasörünüze koyunuz. Eklemeniz gereken kodlar aşağıda gösterilmiştir:
@@ -21,6 +16,7 @@ require_once 'class.namazvakti.php';
 </code>
 
 Sınıfın kullanımı
+
 <code>
 $n = new Namaz();
 
@@ -54,7 +50,6 @@ $ilceler = $n->ilceler(521, 'json');
 
 $vakit = $n->vakit(2, 521, 9351);
 
-
 // Vakit bilgilerinin json verisi olarak almak için
 
 $vakit = $n->vakit(2, 521, 9351, 'json');
@@ -77,3 +72,14 @@ $n->hac_mevsimi(true);
 
 <strong>Önemli Hatırlatma</strong>
 Soru ve sorunlarınızı github üzerinden paylaşabilirsiniz.
+
+<strong>v.5.3</strong>
+* Diyanetin sunucularından veri çekme sıkıntısı giderilmiştir.
+* Hac Kuraları zamanında ortaya çıkan sunucu problemini gidermek için hac_mevsimi() fonkisyonu eklenmiştir.
+* cache klasörünün gerektiği zamanlarda temizlenebilmesi için cache_temizle() fonksiyonu eklendi.
+
+
+<strong>v.5.2</strong>
+* Diyanetin sunucularından veri çekme sıkıntısı giderilmiştir.
+* Hicri takvimin 1 gün geriden gelme problemi giderilmiştir.
+* Hemen hemen tüm dosyalar güncellenmiştir. Dolayısıyla daha önceden bu sistemin dosyalarını kullanıyorsanız, lütfen dosyaları yenileyiniz. Kod çıktılarına dikkat ediniz. Bu sürümde geriye dönük uyumluluk yoktur.
