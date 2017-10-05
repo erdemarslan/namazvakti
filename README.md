@@ -3,7 +3,7 @@ namazvakti
 
 Bu PHP Sınıfı Diyanet İşleri Başkanlığından Namaz / ezan vakitlerini çeker.
 
-v.5.3 Sürümüne güncellenmiştir.
+v.6.0 Sürümüne güncellenmiştir.
 
 <strong>Kullanımı</strong>
 
@@ -57,21 +57,20 @@ $vakit = $n->vakit(2, 521, 9351, 'json');
 
 Gelen veriler dizi veya json verisi olmasına göre kodlar içinde kullanılır.
 
-Özellikle hac kuralarının olduğu dönemde Diyanet sitesini başka bir alt alana taşıyor ve oradan hizmet veriyor. Böyle bir durumda aşağıdaki kodu ekleyip deneyiniz:
-
-<code>
-$n->hac_mevsimi(true);
-</code>
-
 Bazen cache dosyasının hatalı olmasından dolayı veri çekilmiş gözüküp içeriği boş olabiliyor. Böyle bir durumda cache klasörünün içinin temizlenmesi gerekmektedir. Bunun için aşağıdaki kodu kullanınız:
 
 <code>
-$n->hac_mevsimi(true);
+$n->cache_temizle();
 </code>
 
 
 <strong>Önemli Hatırlatma</strong>
 Soru ve sorunlarınızı github üzerinden paylaşabilirsiniz.
+
+<strong>v.6.0</strong>
+* Diyanetin kodlarında ve sunucularında yapmış olduğu değişiklikten dolayı, sınıf tekrardan kodlanmıştır.
+* Hac mevsimi ile ilgili sorun olmayacağı düşünülerek, eski kodlar pasifize edilmiştir.
+* Geriye dönük uyumluluk olmayabilir. Kodları ve geri dönen verileri tekrardan gözden geçiriniz!
 
 <strong>v.5.3</strong>
 * Diyanetin sunucularından veri çekme sıkıntısı giderilmiştir.
