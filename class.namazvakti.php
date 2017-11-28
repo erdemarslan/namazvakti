@@ -322,14 +322,14 @@ Class Namaz
 		}
 		
 		// Adresi belirle
-		$url =  $this->server . '/Home/PrayerTimePdfCreate/' . $ilce . '?vakit=Haftalik';
+		$url =  $this->server . '/' . $ilce . '?vakit=Haftalik';
 		// Sunucudan verileri çek!
 		$sonuc = $this->__curl( $url );
-		
+
 		return $sonuc;
 	}
 
-	
+
 	/**
      * Diyanetten verileri almak için cURL metodu - Özeldir
      *
@@ -348,10 +348,10 @@ Class Namaz
 		curl_setopt( $ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0' );
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, TRUE );
 		curl_setopt( $ch, CURLOPT_REFERER, "https://namazvakitleri.diyanet.gov.tr/tr-TR" );
-		
+
 		$veri = curl_exec( $ch );
 		$bilgi = curl_getinfo( $ch );
-		
+
 		if( $bilgi['http_code'] == 200 ) // POST durumunda geçerli veri dönerse HTTP_RESPONSE_CODE = 200 oluyor!
 		{
 			$sonuc = array(
@@ -401,49 +401,41 @@ Class Namaz
 				if($sira == 0) {
 					$sonuc["vakitler"][$elde] = array(
 						'tarih' => $elde,
-						'hicri' => "",
 						'imsak' => "",
 						'gunes' => "",
 						'ogle'	=> "",
 						'ikindi' => "",
 						'aksam'	=> "",
 						'yatsi'	=> "",
-						'kible'	=> ''
 					);
 					$simdikisatir = $elde;
 				}
 
-				if($sira == 1) {
-					$sonuc["vakitler"][$simdikisatir]["hicri"] = $elde;
-				}
 
-				if($sira == 2){
+				if($sira == 1){
 					$sonuc["vakitler"][$simdikisatir]["imsak"] = $elde;
 				}
 
-				if($sira == 3) {
+				if($sira == 2) {
 					$sonuc["vakitler"][$simdikisatir]["gunes"] = $elde;
 				}
 
-				if($sira == 4) {
+				if($sira == 3) {
 					$sonuc["vakitler"][$simdikisatir]["ogle"] = $elde;
 				}
 
-				if($sira == 5) {
+				if($sira == 4) {
 					$sonuc["vakitler"][$simdikisatir]["ikindi"] = $elde;
 				}
 
-				if($sira == 6) {
+				if($sira == 5) {
 					$sonuc["vakitler"][$simdikisatir]["aksam"] = $elde;
 				}
 
-				if($sira == 7) {
+				if($sira == 6) {
 					$sonuc["vakitler"][$simdikisatir]["yatsi"] = $elde;
 				}
 
-				if($sira == 8) {
-					$sonuc["vakitler"][$simdikisatir]["kible"] = $elde;
-				}
 				$sira = $sira + 1;
 			}
 
