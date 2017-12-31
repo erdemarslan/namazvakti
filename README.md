@@ -3,57 +3,10 @@ namazvakti
 
 Bu PHP Sınıfı Diyanet İşleri Başkanlığından Namaz / ezan vakitlerini çeker.
 
-v.6.0 Sürümüne güncellenmiştir.
+v.7.0 Sürümüne güncellenmiştir.
 
 <strong>Kullanımı</strong>
-
-class.namazvakti.php dosyasını ve db ile cache klasörünü ana dizin klasörünüze koyunuz. Eklemeniz gereken kodlar aşağıda gösterilmiştir:
-
-<code>
-// Namaz vakti sınıfını dosyana include et!
-
-require_once 'class.namazvakti.php';
-</code>
-
-Sınıfın kullanımı
-
-<code>
-$n = new Namaz();
-
-// ülkeleri dizi olarak alma
-
-$ulkeler = $n->ulkeler();
-
-// ülkeleri json verisi olarak alma (özellikle js de kullanılacaksa)
-
-$ulkeler = $n->ulkeler('json');
-
-// Şehirleri dizi olarak alma
-
-$sehirler = $n->sehirler(2); // mutlaka sayı değerinde bir parametreye sahip olmalıdır. Bu sayı değeri ülke kodudur ve $ulkeler değişkeninden alınabilir
-
-
-// Şehirleri Json verisi olarak almak için
-
-$sehirler = $n->sehirler(2, 'json');
-
-
-// İlçeleri dizi olarak alma
-
-$ilceler = $n->ilceler(521);
-
-// İlçeleri json verisi olarak alma
-
-$ilceler = $n->ilceler(521, 'json');
-
-// Vakit bilgilerini dizi olarak almak için
-
-$vakit = $n->vakit(2, 521, 9351);
-
-// Vakit bilgilerinin json verisi olarak almak için
-
-$vakit = $n->vakit(2, 521, 9351, 'json');
-</code>
+ornek.php dosyasını inceleyiniz.
 
 Gelen veriler dizi veya json verisi olmasına göre kodlar içinde kullanılır.
 
@@ -66,6 +19,12 @@ $n->cache_temizle();
 
 <strong>Önemli Hatırlatma</strong>
 Soru ve sorunlarınızı github üzerinden paylaşabilirsiniz.
+
+<strong>v.7.0</strong>
+* Diyanetin kodlarında ve sunucularında yapmış olduğu değişiklikten dolay sınıf tekrar kodlanmıştır.
+* Bazı fonksiyonlarda değişiklikler oldu. Detaylı bilgiyi ornek.php dosyasından inceleyiniz.
+* Geriye doğru kısmi uyumluluk mevcuttur. Kodları ve geri dönen verileri tekrar gözden geçiriniz.
+* Hicri takvim için v.6.0 da kaldırılan kodlar tekrar eklenmiştir.
 
 <strong>v.6.0</strong>
 * Diyanetin kodlarında ve sunucularında yapmış olduğu değişiklikten dolayı, sınıf tekrardan kodlanmıştır.
