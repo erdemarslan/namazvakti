@@ -413,6 +413,7 @@
          } // 2. foreach sonu
          $sira = 0;
        } // ilk foreach sonu
+      $html->clear();
      } // if sonu
      return $sonuc;
    }
