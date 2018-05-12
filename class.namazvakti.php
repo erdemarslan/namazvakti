@@ -170,11 +170,13 @@
      if($this->ulke == 2 || $this->ulke == 33 || $this->ulke == 52) {
        $this->ilce = is_null($ilce) === TRUE ? $this->ilce : $ilce;
        $ilce = $this->ilceler($this->il);
-       $url = $this->server . $this->ilce . "/" . strtolower($ilce['veri'][$this->ilce]) . "-icin-namaz-vakti";
+       //$url = $this->server . $this->ilce . "/" . strtolower($ilce['veri'][$this->ilce]) . "-icin-namaz-vakti";
+       $url = $this->server . $this->ilce . "/" . str_replace(' ', '-',trim(strtolower($ilce['veri'][$this->ilce]))) . "-icin-namaz-vakti";
      } else {
        $this->ilce = is_null($ilce) === TRUE ? $this->il : $this->ilce;
        $il = $this->sehirler($this->ulke);
-       $url = $this->server . $this->ilce . "/" . strtolower($il['veri'][$this->il]) . "-icin-namaz-vakti";
+       //$url = $this->server . $this->ilce . "/" . strtolower($il['veri'][$this->il]) . "-icin-namaz-vakti";
+       $url = $this->server . $this->ilce . "/" . str_replace(' ', '-',trim(strtolower($il['veri'][$this->il]))) . "-icin-namaz-vakti";
      }
 
      $cache_dosya_adi = 'vakit_' . $this->ulke . '_' . $this->il . '_' . $this->ilce;
