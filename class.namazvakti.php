@@ -65,7 +65,7 @@
      7  =>  "Recep",
      8  =>  "Şaban",
      9  =>  "Ramazan",
-     10  =>  "Sevval",
+     10  =>  "Şevval",
      11  =>  "Zi'l-ka'de",
      12  =>  "Zi'l-Hicce",
    );
@@ -307,11 +307,45 @@
 
      return $sonuc;
    }
-   // Tarihi uzun bir biçimde verir. Dil değişikliklerinde kolaylık olsun diye böyle bir fonksiyon yazılmıştır!
-   private function _uzunTarih($tarih=NULL) {
-     if ($tarih === null) $tarih = date('d.m.Y',time());
-     return date("d", strtotime($tarih)) . " " . $this->miladiaylar[date("m", strtotime($tarih)) * 1] . " " . date("Y", strtotime($tarih)) . " " . $this->haftaningunleri[date("N", strtotime($tarih))];
+  // Tarihi uzun bir biçimde verir. Dil değişikliklerinde kolaylık olsun diye böyle bir fonksiyon yazılmıştır!
+  private function _uzunTarih($tarih=NULL) {
+    if ($tarih === null) {
+      $tarih = date('d.m.Y',time());
+    }
+      
+    return date("d", strtotime($tarih)) . " " . $this->miladiaylar[date("m", strtotime($tarih)) * 1] . " " . date("Y", strtotime($tarih)) . " " . $this->haftaningunleri[date("N", strtotime($tarih))];
    }
+
+   // tarih meselesini düzeltir!
+   private function _tarihle($tarih=null) {
+    if($tarih == null) {
+      $tarih = date('d.m.Y',time());
+      return $tarih;
+    } else {
+
+      $veri = explode(" ", $tarih);
+
+      $gun = $veri[0];
+      $ay_string = $veri[1];
+      $yil = $veri[2];
+
+      $m_ay = $this->miladiaylar;
+
+      unset($m_ay[0]);
+
+      $aylar = array_flip($m_ay);
+
+      if($aylar[$ay_string] < 10) {
+        $ay = "0" . $aylar[$ay_string];
+      } else {
+        $ay = $aylar[$ay_string];
+      }
+
+      return $gun . "." . $ay . "." . $yil;
+
+    }
+   }
+
    // Veriyi sunucudan çeker!
    private function _curl($url) {
      $ch = curl_init();
@@ -376,12 +410,14 @@
          $simdikisatir = "";
          foreach ($tr->find('td') as $td) {
            $elde = trim($td->plaintext);
+           $tarihim = $this->_tarihle($elde);
+
            if($sira == 0) {
-             $sonuc['vakitler'][$elde] = array(
-               'tarih' => $elde,
-               'tarih_uzun' => $this->_uzunTarih($elde),
-               'hicri' => $this->_hicriTarih($elde),
-               'hicri_uzun' => $this->_hicriTarih($elde, TRUE),
+             $sonuc['vakitler'][$tarihim] = array(
+               'tarih' => $tarihim,
+               'tarih_uzun' => $this->_uzunTarih($tarihim),
+               'hicri' => $this->_hicriTarih($tarihim),
+               'hicri_uzun' => $this->_hicriTarih($tarihim, TRUE),
                'imsak' => '',
                'gunes' => '',
                'ogle' => '',
@@ -389,7 +425,7 @@
                'aksam' => '',
                'yatsi' => ''
              );
-             $simdikisatir = $elde;
+             $simdikisatir = $tarihim;
            }
 
            if($sira == 1) {
