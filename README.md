@@ -3,10 +3,10 @@ namazvakti
 
 Bu PHP Sınıfı Diyanet İşleri Başkanlığından Namaz / ezan vakitlerini çeker.
 
-v.7.0 Sürümüne güncellenmiştir.
+v.8.0 Sürümüne güncellenmiştir.
 
 <strong>Kullanımı</strong>
-ornek.php dosyasını inceleyiniz.
+index.php dosyasını inceleyiniz.
 
 Gelen veriler dizi veya json verisi olmasına göre kodlar içinde kullanılır.
 
@@ -19,6 +19,12 @@ $n->cache_temizle();
 
 <strong>Önemli Hatırlatma</strong>
 Soru ve sorunlarınızı github üzerinden paylaşabilirsiniz.
+
+<strong>v.8.0</strong>
+* Bir önceki sürümde yapılan hatalı kodlamadan dolayı verilerin yanlış gelmesini sağlayan problem çözülmüştür. Bunun için sınıf tekrar kodlandı.
+* Bazı fonksiyonlarda değişiklikler oldu. Detaylı bilgiyi index.php dosyasından inceleyiniz.
+* Geriye doğru kısmi uyumluluk mevcuttur. Kodları ve geri dönen verileri tekrar gözden geçiriniz.
+* Diyanet üzerinden çekilen ham verileri ham_* klasörlerinden inceleyebilirsiniz. vericek.php bu verileri çekip yorumlarken kullanılan kodları içerir.
 
 <strong>v.7.0</strong>
 * Diyanetin kodlarında ve sunucularında yapmış olduğu değişiklikten dolay sınıf tekrar kodlanmıştır.

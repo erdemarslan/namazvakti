@@ -20,7 +20,7 @@
         "ext-json": "*"
     },
     "autoload"         : {
-        "classmap": ["class.namazvakti.php"]
+        "classmap": ["class.namaz.php"]
     },
     "minimum-stability": "dev"
 }
