@@ -459,7 +459,7 @@ Class Namaz {
       $gun = $parca[0];
       $yil = $parca[2];
 
-      if($aylar[html_entity_decode($parca[1])] > 10) {
+      if($aylar[html_entity_decode($parca[1])] > 9) {
          $ay = $aylar[html_entity_decode($parca[1])];
       } else {
          $ay = "0" . $aylar[html_entity_decode($parca[1])];
@@ -477,7 +477,19 @@ Class Namaz {
       if($uzun) {
          $sonuc = $bugun['day'] . ' ' . $this->hicriAylar[$bugun['month']] . ' ' . $bugun['year'];
       } else {
-         $sonuc = $bugun['day'] . '.' . $bugun['month'] . '.' . $bugun['year'];
+
+         $gun = $bugun['day'];
+         $ay = $bugun['month'];
+
+         if($gun < 10) {
+            $gun = "0" . $gun;
+         }
+
+         if($ay < 10) {
+            $ay = "0" . $ay;
+         }
+
+         $sonuc = $gun . '.' . $ay . '.' . $bugun['year'];
       }
       return $sonuc;
    }

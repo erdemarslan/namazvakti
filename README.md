@@ -22,6 +22,8 @@ Soru ve sorunlarınızı github üzerinden paylaşabilirsiniz.
 
 <strong>v.8.1</strong>
 * Sunucudan veri çekilmesini engelleyen karakter set hatası düzeltildi.
+* Tarih ve Hicri tarihte soruna yol açabilecek hata düzeltildi.
+* Tarih ve hicri tarihin daha düzgün görünmesi sağlandı.
 * Bir önceki sürüm ile tam uyumluluk mevcuttur.
 
 <strong>v.8.0</strong>
