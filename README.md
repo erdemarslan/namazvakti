@@ -3,7 +3,7 @@ namazvakti
 
 Bu PHP Sınıfı Diyanet İşleri Başkanlığından Namaz / ezan vakitlerini çeker.
 
-v.8.0 Sürümüne güncellenmiştir.
+v.8.1 Sürümüne güncellenmiştir.
 
 <strong>Kullanımı</strong>
 index.php dosyasını inceleyiniz.
@@ -19,6 +19,10 @@ $n->cache_temizle();
 
 <strong>Önemli Hatırlatma</strong>
 Soru ve sorunlarınızı github üzerinden paylaşabilirsiniz.
+
+<strong>v.8.1</strong>
+* Sunucudan veri çekilmesini engelleyen karakter set hatası düzeltildi.
+* Bir önceki sürüm ile tam uyumluluk mevcuttur.
 
 <strong>v.8.0</strong>
 * Bir önceki sürümde yapılan hatalı kodlamadan dolayı verilerin yanlış gelmesini sağlayan problem çözülmüştür. Bunun için sınıf tekrar kodlandı.

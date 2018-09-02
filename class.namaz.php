@@ -153,7 +153,7 @@ Class Namaz {
 		return ($cikti == 'array' ? $sonuc : json_encode($sonuc));
 	}
 
-	// İlçelerin listesini verir! Şehir id verilmesi gerekir.
+	// İlçelerin listesini verir! Ülke ve Şehir id verilmesi gerekir.
 	public function ilceler($ulke, $sehir, $cikti = 'array') {
 		
 		$sonuc = array(
@@ -360,6 +360,7 @@ Class Namaz {
       $veri = curl_exec($ch);
       $bilgi = curl_getinfo($ch);
 
+
       $sonuc = array(
          'durum' => 'hata',
          'veri' => array()
@@ -384,9 +385,11 @@ Class Namaz {
          'vakitler' => array()
       );
 
+      //print_r($veri);
+
       // Gelen veri var mı?
-      if(strpos($veri, "<div id=\"tab-1\" class=\"w3-container w3-border nv-tab-content\" style=\"display:none\">") !== FALSE) {
-         $bolme1 = explode("<div id=\"tab-1\" class=\"w3-container w3-border nv-tab-content\" style=\"display:none\">", $veri);
+      if(strpos($veri, "<div id = \"tab-1\" class=\"w3-container w3-border nv-tab-content\" style=\"display:none\">") !== FALSE) {
+         $bolme1 = explode("<div id = \"tab-1\" class=\"w3-container w3-border nv-tab-content\" style=\"display:none\">", $veri);
          $elimizde_kalan = explode("</section>", $bolme1[1]);
          $html = str_get_html($elimizde_kalan[0]);
 
@@ -399,6 +402,7 @@ Class Namaz {
 
                if($sira == 0) {
                   $tarih = $this->_kisaTarih($elde);
+                  //$tarih = $elde;
 
                   $sonuc['vakitler'][$tarih] = array(
                      'tarih' => $tarih,
@@ -455,10 +459,10 @@ Class Namaz {
       $gun = $parca[0];
       $yil = $parca[2];
 
-      if($aylar[$parca[1]] > 10) {
-         $ay = $aylar[$parca[1]];
+      if($aylar[html_entity_decode($parca[1])] > 10) {
+         $ay = $aylar[html_entity_decode($parca[1])];
       } else {
-         $ay = "0" . $aylar[$parca[1]];
+         $ay = "0" . $aylar[html_entity_decode($parca[1])];
       }
 
       return $gun . "." . $ay . "." . $yil;
