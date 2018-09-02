@@ -5,7 +5,7 @@
  * @author		Erdem ARSLAN <http://www.erdemarslan.com> <erdemsaid@gmail.com>
  * @copyright	Copyright (c) 2006-2017 erdemarslan.com
  * @link		http://www.eralabs.net/
- * @version     8.0
+ * @version     8.1
  * @license		GPL v2.0
  */
 
